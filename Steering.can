@@ -1,0 +1,88 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+  
+}
+
+variables
+{
+  message 0X50 msg1;
+//  message Emer_brake eng;
+  msTimer timr; 
+//  msTimer timr2; 
+//  int wr;
+  //msTimer delay;
+  //int f;
+}
+
+on start
+{
+ setTimer(timr,0);
+//  setTimer(timr2,2000);
+//  //setTimer(delay,3000);
+}
+//on timer timr
+//{
+//  msg1.dlc=8;
+//  msg1.byte(0)=0x01;
+//  msg1.byte(1)=0x02;
+//  msg1.byte(2)=0x03;
+//  msg1.byte(3)=0x04;
+//  msg1.byte(4)=0x05;
+//  msg1.byte(5)=0x06;
+//  msg1.byte(6)=0x07;
+//  msg1.byte(7)=0x08;
+//  output(msg1);
+  
+//  setTimer(timr,1000);
+//}
+//on timer timr2
+//{
+//  eng.Veh_spd = 100;
+//  output(eng);
+//  setTimer(timr2,2000);
+//}
+//on key'a'
+//{
+//  wr=@Demo_2_Emer_brake::Veh_speed;
+  
+//  write("%d",wr);
+
+//}
+//on sysvar testing::Start
+//{
+//  @testing::speedcheck = @testing::Input;
+//  if(@testing::Input > 50)
+//  {
+//    write("Warn");
+//    @testing::Warn = 1;
+//  }
+//  else {
+//    write("No Warn");
+//    @testing::Warn = 0;
+//  }
+
+//}
+
+
+on timer timr
+{
+  @testing::Input = @testing::Input+5;
+  @testing::speedcheck = @testing::Input;  
+  
+    if(@testing::Input > 100)
+  {
+    write("Warn");
+    @testing::Warn = 1;
+  }
+  else {
+    write("No Warn");
+    @testing::Warn = 0;
+  }
+     if(@testing::Input>200)
+     {
+       @testing::Input=0;
+     }
+  
+  setTimer(timr,500);
+}
