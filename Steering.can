@@ -12,7 +12,8 @@ variables
 //  msTimer timr2; 
 //  int wr;
   //msTimer delay;
-  //int abc;
+  //int abcd;
+int dbc;
 }
 
 on start
